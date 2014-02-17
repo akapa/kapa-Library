@@ -1,0 +1,21 @@
+{
+  "name": "kapa/Library",
+  "version": "0.0.0",
+  "description": "A basic library implementation.",
+  "main": "Library.js",
+  "keywords": [
+    "collection",
+    "library"
+  ],
+  "authors": [
+    "Kapa"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
