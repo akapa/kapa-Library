@@ -7,7 +7,7 @@ define(['underscore'], function (_) {
 		/**
 		 * @constructor Library
 		 * @classdesc A basic library/collection used to store and retrieve items.
-		 * @param {Array.<Object>} defs - The initial elements of the library.
+		 * @param {Array.<*>} defs - The initial elements of the library.
 		 */
 		init: function (defs) {
 			this.items = {};
@@ -27,7 +27,7 @@ define(['underscore'], function (_) {
 		},
 		/**
 		 * Conveniency method to add an array of items at once to the collection.
-		 * @param {Array.<Object>} defs - The items to be added.
+		 * @param {Array.<*>} defs - The items to be added.
 		 */
 		addItems: function (defs) {
 			_(defs).each(function (val) {

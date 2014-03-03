@@ -44,6 +44,13 @@ lib.getItem('fos'); //{ whatever: 'fos' }
 
 In this basic implementation `addItem` will simply overwrite data for a key that already exists.
 
+You can also add a whole bunch of items at once with `addItems`, but in this case the key will be read automatically, you cannot specify it.
+
+```javascript
+lib.addItems([{ name: 'a2' }, { name: 'a3' }, { name: 'a4' }]);
+lib.getItem('a3'); //{ name: 'a3' }
+```
+
 ###Checking if key exists
 
 ```javascript
