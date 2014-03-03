@@ -57,6 +57,6 @@ lib.getItem('a3'); //{ name: 'a3' }
 lib.exists('fos'); //true (we just added it in the previous example :))
 ```
 
-###Documentation
+##Documentation
 
 All the methods are documented with [JSDoc3](https://github.com/jsdoc3/jsdoc), you can find the generated HTML documentation in the **docs** folder.
