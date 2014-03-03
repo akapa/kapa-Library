@@ -10,23 +10,27 @@ Defined in a [Require.js](http://requirejs.org/) format, so you need an AMD load
 
 ###Creating a new library
 
+	```javascript
     var lib = new Library();
     //or you can pass initial library contents:
     var lib2 = new Library([ { name: 'a' }, { name: 'b' } ]);
 
 ###Retrieving items
 
+	```javascript
     lib2.getItem('a'); //{ name: 'a' }
 
 ###Adding items
 
 When you add an item, you can specify the key as the second parameter, but it is optional. 
 
+	```javascript
     lib.addItem({ x: 2 }, 'key1');
     lib.getItem('key1'); //{ x: 2 }
 
 If not given, Library will attempt to read the key from the property of item specified in `Library.nameProperty`. The default setting is `'name'`. See the following example:
 
+	```javascript
     lib.addItem({ name: 'xy' });
     lib.getItem('xy'); //{ name: 'xy' }
 
@@ -38,6 +42,7 @@ In this basic implementation `addItem` will simply overwrite data for a key that
 
 ###Checking if key exists
 
+	```javascript
     lib.exists('fos'); //true (we just added it in the previous example :))
 
 ###Documentation
