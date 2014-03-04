@@ -1,4 +1,4 @@
-define(['underscore'], function (_) {
+define(function () {
 
 	/**
 	 * @lends Library.prototype
@@ -11,6 +11,7 @@ define(['underscore'], function (_) {
 		 */
 		init: function (defs) {
 			this.items = {};
+			this.type = null;
 			this.nameProperty = 'name';
 			this.addItems(defs);
 			return this;
@@ -29,9 +30,10 @@ define(['underscore'], function (_) {
 		 * @param {Array.<*>} defs - The items to be added.
 		 */
 		addItems: function (defs) {
-			_(defs).each(function (val) {
-				this.addItem(val);
-			}, this);
+			defs = defs || [];
+			for (var i = 0, l = defs.length; i < l; i++) {
+				this.addItem(defs[i]);
+			}
 		},
 		/**
 		 * Retrieve an element from the collection by its key.
@@ -48,20 +50,23 @@ define(['underscore'], function (_) {
 		 */
 		exists: function (name) {
 			return name in this.items;
-		},
-		/**
-		 * Removes an item from the collection.
-		 * @param {string} name - The key to delete.
-		 */
-		removeItem: function (name) {
-			delete this.items[name];
 		}
 	};
 
-	return function Library () {
-		var obj = Object.create(library, {
-			constructor: { value: Library }
-		});
-		return obj.init.apply(obj, arguments);
-	};
+	/**
+	 * Removes an item from the collection.
+	 * @param {string} name - The key to delete.
+	 */
+	removeItem: function (name) {
+		delete this.items[name];
+	}
+
+	return (function () {
+		function Library () {
+			this.init.apply(this, arguments);
+		}
+		Library.prototype = library;
+		return Library;
+	})();
+
 });
