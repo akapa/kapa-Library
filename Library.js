@@ -50,16 +50,15 @@ define(function () {
 		 */
 		exists: function (name) {
 			return name in this.items;
+		},
+		/**
+		 * Removes an item from the collection.
+		 * @param {string} name - The key to delete.
+		 */
+		removeItem: function (name) {
+			delete this.items[name];
 		}
 	};
-
-	/**
-	 * Removes an item from the collection.
-	 * @param {string} name - The key to delete.
-	 */
-	removeItem: function (name) {
-		delete this.items[name];
-	}
 
 	return (function () {
 		function Library () {
